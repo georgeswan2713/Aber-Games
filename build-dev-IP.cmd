@@ -5,9 +5,8 @@ setlocal
 	set DIST_DIR=C:\users\georg\eclipse-workspace\Production\dist
 	set TEMP_DIR=C:\users\georg\eclipse-workspace\Production\temp
 	
-	set NODE_DIR=C:\Users\georg\NodejsProject\swan-games
+	set NODE_DIR=C:\Users\georg\NodejsProject
 	set PUBLIC_DIR=%NODE_DIR%/public
-	set ROUTES_DIR=%NODE_DIR%/routes
 	
 	set JS_DIR=%PUBLIC_DIR%/js
 	set IMAGES_DIR=%PUBLIC_DIR%/images
@@ -17,9 +16,7 @@ setlocal
     if not exist "%TEMP_DIR%" mkdir "%TEMP_DIR%"
     
     if not exist "%PUBLIC_DIR%" mkdir "%PUBLIC_DIR%"
-    if not exist "%ROUTES_DIR%" mkdir "%ROUTES_DIR%"
     
-    if not exist "%JS_DIR%" mkdir "%JS_DIR%"
     if not exist "%IMAGES_DIR%" mkdir "%IMAGES_DIR%"
 		
 	REM Get current year
@@ -37,7 +34,7 @@ setlocal
 	REM call esbuild %TEMP_DIR%\entry.js --bundle --minify --format=cjs --legal-comments=inline --tree-shaking=false --outfile=%DIST_DIR%\app.bundle.min.js
 
 	REM mangle the code more
-	call terser %DIST_DIR%\app.bundle.min.js --compress --mangle --output %DIST_DIR%\app.bundle.supermin.js
+	REM call terser %DIST_DIR%\app.bundle.min.js --compress --mangle --output %DIST_DIR%\app.bundle.supermin.js
 
 	REM Minify HTML
 	call html-minifier-terser .\index.html --collapse-whitespace --remove-comments --minify-css true --minify-js true -o %DIST_DIR%\index.min.html

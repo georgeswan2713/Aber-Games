@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-	set NODE_DIR=C:\Users\georg\NodejsProject\swan-games
+	set NODE_DIR=C:\Users\georg\NodejsProject
 	set PUBLIC_DIR=%NODE_DIR%/public
 	set ROUTES_DIR=%NODE_DIR%/routes 
 	
@@ -14,7 +14,6 @@ setlocal
     if not exist "%PUBLIC_DIR%" mkdir "%PUBLIC_DIR%"
     if not exist "%ROUTES_DIR%" mkdir "%ROUTES_DIR%"
     
-    if not exist "%JS_DIR%" mkdir "%JS_DIR%"
     if not exist "%IMAGES_DIR%" mkdir "%IMAGES_DIR%"
 
 	REM Copy all the TEMP/js files to the public folder
