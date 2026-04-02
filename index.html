@@ -41,41 +41,45 @@
       margin-bottom: 18px;
     }
 
+ /*----------------------------- Game CSS ----------------------------------- */
     .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      width: min(900px, 92%);
+      	display: grid;
+      	flex-direction: column;
+      	gap: 10px;
+      	width: min(900px, 92%);
     }
 
-    .game-card {
- 		position: relative;
-  		text-decoration: none;
-  		color: var(--text);
-  		background: linear-gradient(180deg, #1b2042, var(--card));
-		border-radius: 16px;
-		overflow: hidden;
-		box-shadow: 0 0 0 rgba(0,0,0,0);
-		transform: translateY(0) scale(1);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		
-		min-height: 150px;
-		padding: 12px 16px;
+	.game-card {
+    	display: flex;                  /* image left, info right */
+    	align-items: center;            /* vertical centering */
+    	gap: 20px;                      /* space between image and text */
+    	text-decoration: none;          /* remove underline */
 	}
     
-   .game-info {
-  		flex: 1;
-  		display: flex;
-  		flex-direction: column;
-  		justify-content: center;
-  		gap: 8px;
-  		padding-right: 12px;
-  		text-align: center;
+	.game-info {
+    	display: flex;
+    	flex-direction: column;         /* stack title & desc vertically */
+    	justify-content: center;        /* vertically center next to image */
+    	text-align: center;               /* optional */
+    	color: var(--text);                   /* or whatever you want */
+	}
+
+	.game-image {
+		display: block;
+    	flex-shrink: 0;                 /* prevent shrinking */
+    	border-radius: 16px;            /* rounded corners */
+    	overflow: hidden;               /* ensures image follows radius */
+    	/* box-shadow: 5px 2px 5px rgba(210,210,210,0.7);*/ /* shadow */
+    	width: 150px;                   /* or whatever size you want */
+    	height: 165px;
+	}
+
+	.game-image img {
+    	width: 100%;
+    	height: auto;
+    	border-radius: 16px;
+    	object-fit: contain;              /* maintain aspect ratio & cover container */
+    	display: block;                 /* remove inline gap */
 	}
 
     .game-card::before {
@@ -102,33 +106,8 @@
     .game-card:hover::before {
       opacity: 0.8;
     }
-
     
- 	.game-image {
-  		flex: 0 0 160px;
-  		display: flex;
-  		justify-content: center;
-  		align-items: center;
-  		margin-right: 14px;
-	}
-
-	.game-image img {
-  		width: 100%;
-  		max-width: 140px;
-  		max-height: 140px;
-  		object-fit: contain;
-  		display: block;
-  		border-radius: 10px;  /* <-- rounds corners */
-  		box-shadow: 5px 5px 5px rgba(150,150, 150,0.6);
- 	}
- 	
-    footer {
-      margin: 14px 0 24px;
-      opacity: 0.4;
-      font-size: 0.9rem;
-    }
-
-
+    
 	.game-title {
   		font-size: 18px;
   		font-weight: 600;
@@ -140,6 +119,15 @@
   		line-height: 1.3;
   		opacity: 0.75;
 	}
+	
+	
+    footer {
+      margin: 14px 0 24px;
+      opacity: 0.4;
+      font-size: 0.9rem;
+    }
+
+
     
     
   </style>
@@ -156,10 +144,10 @@
     	<span class="game-image">
   			<img src="images/crosswordle.jpg" alt="xwordle">
   		</span>
-  		<div class="game-info">
+  		<span class="game-info">
   			<span class="game-title">Cross-Wordle</span>
-  			<span class="game-desc">Crossword Version of Wordle Game</span>
-  		</div>
+  			<span class="game-desc">Crossword version of Wordle game</span>
+  		</span>
 	</a>
 
     <a class="game-card" href="/findpath">
@@ -168,7 +156,7 @@
         </span>
         <div class="game-info">
       		<span class="game-title">Find-Path-Now</span>
-      		<span class="game-desc">Word Search, but for Whole Sentences</span>
+      		<span class="game-desc">Word search, but for whole sentences</span>
       	</div>
     </a>
 
@@ -178,7 +166,7 @@
         </span>
       	<div class="game-info">
       		<span class="game-title">Free-A-Word</span>
-      		<span class="game-desc">Solitaire Game Based on Letters</span>
+      		<span class="game-desc">Solitaire game based on letters</span>
       	</div>
     </a>
 
