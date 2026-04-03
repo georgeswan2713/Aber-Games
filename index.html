@@ -81,33 +81,7 @@
     	object-fit: contain;              /* maintain aspect ratio & cover container */
     	display: block;                 /* remove inline gap */
 	}
-
-    .game-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at 50% 0%,
-        var(--glow),
-        transparent 60%
-      );
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .game-card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow:
-        0 20px 40px rgba(0,0,0,0.6),
-        0 0 30px var(--glow);
-    }
-
-    .game-card:hover::before {
-      opacity: 0.8;
-    }
-    
-    
+ 
 	.game-title {
   		font-size: 18px;
   		font-weight: 600;
@@ -119,6 +93,15 @@
   		line-height: 1.3;
   		opacity: 0.75;
 	}
+	
+	 .game-link img {
+      	width: 200px;
+      	height: auto;
+      	cursor: pointer;
+      	border-radius: 8px;
+      	box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      	transition: transform 0.2s;
+    	}
 	
 	
     footer {
@@ -139,40 +122,64 @@
   <div class="subtitle">Three games. One brain workout</div>
 
   <div class="game-grid">
-
-    <a class="game-card" href="https://crswordle.com/" target="_blank">
+  	<a class="game-card" href="#" onclick="openCrswordle(); return false;">
     	<span class="game-image">
-  			<img src="images/crosswordle.jpg" alt="xwordle">
-  		</span>
-  		<span class="game-info">
+      		<img src="images/crosswordle.jpg" alt="xwordle">
+    	</span>
+    	<span class="game-info">
   			<span class="game-title">Cross-Wordle</span>
   			<span class="game-desc">Crossword version of Wordle game</span>
-  		</span>
+    	</span>
 	</a>
 
-    <a class="game-card" href="https://findpathnow.com" target="_blank">
-        <span class="game-image">
+	<a class="game-card" href="#" onclick="openFindpathnow(); return false;">
+    	<span class="game-image">
       		<img src="images/findpath.jpg" alt="findpath">
-        </span>
-        <div class="game-info">
+    	</span>
+    	<span class="game-info">
       		<span class="game-title">Find-Path-Now</span>
       		<span class="game-desc">Word search, but for whole sentences</span>
-      	</div>
+      	</span>
     </a>
 
-    <a class="game-card" href="https://freeaword.com" target="_blank">
-        <span class="game-image">
+	<a class="game-card" href="#" onclick="openFreeaword(); return false;">
+    	<span class="game-image">
       		<img src="images/freeword.jpg" alt="freeword">
-        </span>
-      	<div class="game-info">
+    	</span>
+    	<span class="game-info">
       		<span class="game-title">Free-A-Word</span>
       		<span class="game-desc">Solitaire game based on letters</span>
-      	</div>
-    </a>
+    	</span>
+	</a>
 
   </div>
 
   <footer>© AberGames Studio</footer>
 
+	<script>
+		function openCrswordle() {
+  			const url = "https://crswordle.com";
+  			const tabName = "crswordleTab";
+  			const win = window.open(url, tabName);
+  			if (win) win.focus(); // brings existing tab to front
+		}
+		
+		function openFindpathnow() {
+      		const url = "https://findpathnow.com";
+      		const tabName = "findpathnowTab";
+      		const win = window.open(url, tabName);
+      		if (win) win.focus(); // brings existing tab to front
+    	}
+	
+    	function openFreeaword() {
+      		const url = "https://freeaword.com";
+      		const tabName = "freeawordTab";
+      		const win = window.open(url, tabName);
+      		if (win) win.focus(); // brings existing tab to front
+    	}
+ 
+  	</script>
+  
+  
 </body>
 </html>
