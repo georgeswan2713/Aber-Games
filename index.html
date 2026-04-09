@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Hub</title>
+  <title>Abergames Hub</title>
 
   <style>
     :root {
@@ -11,7 +11,6 @@
       --card: #161a2e;
       --text: #e6e8ff;
       --accent: #6cf2c2;
-      --glow: rgba(108, 242, 194, 0.6);
     }
 
     * {
@@ -50,11 +49,27 @@
     }
 
 	.game-card {
-    	display: flex;                  /* image left, info right */
-    	align-items: center;            /* vertical centering */
-    	gap: 20px;                      /* space between image and text */
-    	text-decoration: none;          /* remove underline */
-	}
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: inherit;
+
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
+}
+
+.game-card:focus,
+.game-card:active,
+.game-card:focus-visible {
+    outline: none;
+    background: transparent;
+}
+
+.game-card img {
+    pointer-events: none; /* optional: tap is handled by the card, not image */
+}
     
 	.game-info {
     	display: flex;
