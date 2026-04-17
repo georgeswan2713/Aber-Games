@@ -11,7 +11,7 @@ setlocal
 		REM Copy to public folder
 		scp -i %PEM_FILE% -r  .\index.html %EC2_IP%:/%NODE_DIR%/public/index.html
 		scp -i %PEM_FILE% -r  ".\images\*.jpg" %EC2_IP%:/%NODE_DIR%/public/images/
-		REM scp -i %PEM_FILE% -r ".\favicon.ico" %EC2_IP%:/%NODE_DIR%/public/images/
+		scp -i %PEM_FILE% -r ".\images\favicon.ico" %EC2_IP%:/%NODE_DIR%/public/images/
 	
 		echo Build complete! Bundled minified JS and HTML are in the node/public folder
 
